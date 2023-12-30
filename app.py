@@ -1,5 +1,5 @@
 import streamlit as st
-from transformers import DistilBertTokenizer, AutoModelForSequenceClassification
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 import pandas as pd
 
@@ -10,12 +10,14 @@ st.set_page_config(page_title="Song Genre Classifier", page_icon="🦁", layout=
 df = pd.read_csv('sampled_english_songs_10000.csv')
 label_mapping = {label: idx for idx, label in enumerate(df['tag'].unique())}
 
-model_name = 'distilbert-base-uncased'
-tokenizer = DistilBertTokenizer.from_pretrained(model_name)
+# Change model_name to 'albert-base-v2'
+model_name = 'albert-base-v2'
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 # Load your trained model
+# Make sure to change the model architecture here as well
 model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=len(label_mapping))
-model.load_state_dict(torch.load('klassifikation_model.pth', map_location=torch.device('cpu')))
+model.load_state_dict(torch.load('llm_model.pth', map_location=torch.device('cpu')))
 model.eval()
 
 def predict(text, tokenizer, model):
