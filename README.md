@@ -1,65 +1,61 @@
- ## LLM-Songtext-Classification
+# Song Analysis App with BERT
 
-This repository contains code for classifying song lyrics using a large language model (LLM). The model is trained on a dataset of over 1 million song lyrics, and can be used to classify songs into various genres, moods, and other categories.
+This repository contains the code for a Streamlit dashboard app that leverages BERT-based models to analyze song lyrics. The application classifies songs by genre, predicts their release year, and estimates the number of views using the lyrics.
 
-### Prerequisites
+## Project Structure
 
-To run the code in this repository, you will need the following:
+- `Dashboard_app.py`: The main Streamlit application for the song analysis dashboard.
+- `DistilBERT_Views_2Class.ipynb`: A Jupyter notebook detailing the training process for the view classification model.
+- `DistilBERT_Year.ipynb`: A Jupyter notebook for training the model to predict the release year of songs.
+- `Lyrics_DataAnalysis.ipynb`: Data analysis Jupyter notebook for the lyrics dataset.
+- `requirements.txt`: A list of Python dependencies required to run the app.
+- `model_complete(1).pth`: The trained model file for song genre classification.
+- `model_years.pth`: The trained model for predicting the release year based on BERT embeddings.
+- `svm_model.pth`: The SVM model file for year prediction.
+- `.gitattributes` & `.gitignore`: Git configuration files.
 
-* A computer with a GPU
-* A Python environment with the following libraries installed:
-    * `transformers`
-    * `torch`
-    * `numpy`
-    * `pandas`
-    * `matplotlib`
-    * `seaborn`
+## Installation
 
-### Data
+To get the application running on your system, follow these steps:
 
-The dataset used to train the model is available for download from the following link:
+1. Clone this repository to your local machine.
+2. Make sure Python is installed on your system.
+3. Install the necessary Python packages using the following command:
 
-[Link to dataset]
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-The dataset is a CSV file containing the following columns:
+4. The models should be trained using the provided Jupyter notebooks if you wish to retrain or fine-tune them. Make sure you have the required dataset.
 
-* `song_id`: The unique ID of the song
-* `lyrics`: The lyrics of the song
-* `genre`: The genre of the song
-* `mood`: The mood of the song
-* `other_categories`: Other categories that the song can be classified into
+5. To start the Streamlit dashboard, run this command in your terminal:
 
-### Model
+    ```bash
+    streamlit run Dashboard_app.py
+    ```
 
-The model is a transformer-based language model that is trained on the dataset of song lyrics. The model is trained to predict the genre, mood, and other categories of a song given its lyrics.
+## Usage
 
-### Training
+When you launch the app, you will see a text input area where you can paste the lyrics of a song. After entering the lyrics, click the "Analyze Song" button to receive predictions for the genre and release year, as well as a classification of the number of views.
 
-To train the model, you can use the following command:
+## Models
 
-```
-python train.py --data_path /path/to/dataset.csv --output_dir /path/to/output_directory
-```
+The models need to be trained before using the dashboard app, or you can integrate your own pre-trained language models.
 
-The `train.py` script will train the model for a specified number of epochs. The model will be saved to the `output_dir` directory.
+- For genre classification: Use `model_complete(1).pth`
+- For release year prediction: Use `model_years.pth` for BERT embeddings and `svm_model.pth` for the SVM model.
 
-### Evaluation
+Ensure that you have the trained model files in the correct directory before running the app.
 
-To evaluate the model, you can use the following command:
+## Contributions
 
-```
-python evaluate.py --data_path /path/to/dataset.csv --model_path /path/to/model.pt
-```
+Contributions to this project are welcome. You can fork the repository, make changes, and create a pull request with your improvements.
 
-The `evaluate.py` script will evaluate the model on the dataset and print the accuracy of the model.
+## Developers
 
-### Usage
+- Servando
+- Flo
+- Serkan
+- Moritz
 
-Once the model is trained, you can use it to classify song lyrics into various genres, moods, and other categories. To do this, you can use the following code:
-
-```
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
-
-tokenizer = AutoTokenizer.from_pretrained("model_name")
-model = AutoModelForSequenceClassification.from_pretrained("model_name")
-
+Thank you for your interest in our song analysis project. We hope you find this application insightful and useful for your analysis needs!
