@@ -1,4 +1,4 @@
-# Song Lyrics Analysis with DistilBERT
+# Exploring Genre and Success Classification through Song Lyrics using DistilBERT: A Fun NLP Venture
 
 ## Overview
 
