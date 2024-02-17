@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this project, we delve into the analysis of song lyrics using the DistilBERT model, a lighter version of BERT that retains most of its performance while being more resource-efficient. Our goal was to leverage natural language processing (NLP) to understand and predict various attributes of songs solely based on their lyrics. The tasks we focused on were genre classification, predicting the success of a song based on view counts, and estimating the release year of tracks.
+In this project, we delve into the analysis of song lyrics using AI as an LLM-DistilBERT model, a lighter version of BERT that retains most of its performance while being more resource-efficient. Our goal was to leverage natural language processing (NLP) to understand and predict various attributes of songs solely based on their lyrics. The tasks we focused on were genre classification, predicting the success of a song based on view counts, and estimating the release year of tracks.
 
 We faced numerous challenges such as dealing with the nuances of language in music, which often includes slang, metaphors, and cultural references. Ensuring the model could interpret these correctly was a significant part of our work.
 
